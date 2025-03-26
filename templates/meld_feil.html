@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Meld Feil</title>
+</head>
+<body class="fade-out">
+    <header class="header">
+        <img src="media/lvs.svg" alt="Lien Vending Solutions Logo" class="logo">
+        <nav>
+            <ul class="header_buttons">
+                <li><button id="darkModeToggle" aria-label="Toggle dark mode"><img src="media/dark-theme-svgrepo-com.svg" alt="Dark mode icon"></button></li>
+                <li><a href="index.html">Forside</a></li>
+                <li><a href="om_oss.html">Om oss</a></li>
+<!--                 <li><a href="portefolje.html">Våre maskiner</a></li>
+ -->                <li><a href="meld_feil.html" class="active">Meld feil</a></li>
+                <li><a href="kontakt.html">Kontakt oss</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content_meld_feil">
+        <section class="form_container">
+            <h2>Meld Feil</h2>
+            <form id="errorReportForm" action="#" method="post" onsubmit="sendMessageError(event)">
+                <label for="machine">Velg maskin:</label>
+                <select id="machine" name="machine" required>
+                    <option value="" disabled selected>Velg maskin</option>
+                    <option value="LVS01">LVS01</option>
+                    <option value="LVS02">LVS02</option>
+                </select>
+            
+                <label for="issueCategory">Kategori:</label>
+                <select id="issueCategory" name="issueCategory" required>
+                    <option value="" disabled selected>Velg kategori</option>
+                    <option value="product_stuck">Produkt sitter fast</option>
+                    <option value="spiral_stuck">Spiral roterer ikke</option>
+                    <option value="product_destroyed">Produkt ødelagt</option>
+                    <option value="card_reader_error">Feil med kortleser</option>
+                    <option value="power_failure">Strømbrudd</option>
+                    <option value="noise">Uvanlig/mye støy</option>
+                    <option value="product_control_failure">Produktkontroll feil</option>
+                    <option value="other">Annet</option>
+                </select>
+            
+                <label for="phone">Telefonnummer:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Ditt telefonnummer" required>
+            
+                <label for="errorMessage">Melding:</label>
+                <textarea id="errorMessage" name="errorMessage" placeholder="Beskriv problemet" required></textarea>
+            
+                <button type="submit" class="submit_button">Send feilmelding</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

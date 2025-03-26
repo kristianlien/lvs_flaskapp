@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kontakt Oss - Lien Vending Solutions</title>
+</head>
+<body class="fade-out">
+    <header class="header">
+        <img src="media/lvs.svg" alt="Lien Vending Solutions Logo" class="logo">
+        <nav>
+            <ul class="header_buttons">
+                <li><button id="darkModeToggle" aria-label="Toggle dark mode"><img src="media/dark-theme-svgrepo-com.svg" alt="Dark mode icon"></button></li>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="om_oss.html">Om oss</a></li>
+<!--                 <li><a href="portefolje.html">Våre maskiner</a></li>
+ -->                <li><a href="meld_feil.html">Meld feil</a></li>
+                <li><a class="active" href="kontakt.html">Kontakt oss</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form_container kontakt_oss">
+            <h2>Kontakt Oss</h2>
+            <form id="kontakt_form" action="#" method="post" onsubmit="sendMessageContact(event)">
+                <label for="name">Navn:</label>
+                <input type="text" id="name" name="name" required>
+            
+                <label for="email">E-post:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="message">Melding:</label>
+                <textarea id="message" name="message" required></textarea>
+            
+                <button type="submit" class="submit_button">Send</button>
+            </form>            
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

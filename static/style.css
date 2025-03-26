@@ -1,0 +1,347 @@
+/* Global Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: #ffffff; /* Light mode background */
+  color: #000000; /* Light mode text color */
+  overflow-x: hidden;
+}
+
+body.dark {
+  background-color: #222222; /* Dark mode background */
+  color: #ffffff; /* Dark mode text color */
+}
+
+/* Remove Scrollbar */
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000; /* Header background */
+  padding: 1vw 2vw;
+  color: rgb(255, 255, 255); /* Header text color */
+}
+
+.header img.logo {
+  width: 160px;
+  filter: invert(100); /* Invert colors for logo */
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2vw; /* Space between nav items */
+}
+
+.header nav ul li {
+  font-size: 1.1em;
+  font-weight: 300; /* Regular weight for nav items */
+}
+
+.header nav ul li a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.header nav ul li a.active {
+  font-weight: 700; /* Bold active link */
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+  width: 30px;
+  border: none;
+  cursor: pointer;
+  background: none; /* No background for button */
+}
+
+#darkModeToggle img {
+  width: 30px;
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
+}
+
+/* Main Content Containers */
+.content_forside, .content_cv, .content_meld_feil, .kontakt_oss {
+  padding: 5vw;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.content_forside {
+  display: flex;
+  align-items: stretch; /* Stretch to full height */
+  gap: 10vw; /* Space between items */
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.content_forside h1 {
+  font-size: 2.5em; /* Large header font size */
+  margin-bottom: 20px;
+}
+
+/* Form Background in Dark Mode */
+body.dark .content_cv, 
+body.dark .content_meld_feil, 
+body.dark .kontakt_oss {
+  background-color: #333; /* Dark gray for form containers */
+}
+
+body.dark input[type="text"], 
+body.dark input[type="tel"], 
+body.dark input[type="email"], 
+body.dark select, 
+body.dark textarea {
+  background-color: #444; /* Darker gray for input fields */
+  color: #ffffff; /* White text color for inputs */
+  border-color: #666; /* Darker border color */
+}
+
+/* Label Styles */
+label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  color: #222; /* Regular label color */
+}
+
+body.dark label {
+  color: #ddd; /* Light gray for labels in dark mode */
+}
+
+/* Input, Select, and Textarea Styles */
+input[type="text"], 
+input[type="tel"], 
+input[type="email"],
+select, 
+textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  height: 50px; /* Fixed height */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+/* Textarea Specific Styles */
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 150px; /* Minimum height for textareas */
+}
+
+/* Focus Styles */
+input[type="text"]:focus, 
+input[type="tel"]:focus, 
+input[type="email"]:focus, 
+select:focus, 
+textarea:focus {
+  border-color: #04aa6d; /* Border color on focus */
+  outline: none; /* Remove outline */
+  box-shadow: 0 0 5px rgba(4, 170, 109, 0.5); /* Shadow effect on focus */
+}
+
+/* Additional Styles for Error State */
+input[type="text"].error, 
+input[type="tel"].error, 
+input[type="email"].error, 
+select.error, 
+textarea.error {
+  border-color: #ff4c4c; /* Red border for errors */
+}
+
+input[type="text"].error:focus, 
+input[type="tel"].error:focus, 
+input[type="email"].error:focus, 
+select.error:focus, 
+textarea.error:focus {
+  box-shadow: 0 0 5px rgba(255, 76, 76, 0.5); /* Shadow for error focus */
+}
+
+/* Submit Buttons */
+.submit_button, .feil_button, .msg {
+  background-color: #04aa6d; /* Green background */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0.8rem 1.5rem; /* Padding for buttons */
+  font-size: 1rem; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: block; /* Block display */
+  width: 100%; /* Full width */
+  margin-top: 1.5rem; /* Margin above */
+  transition: background-color 0.3s ease; /* Transition for background */
+}
+
+.submit_button:hover, .msg:hover {
+  background-color: #059862; /* Darker green on hover */
+}
+
+.feil_button {
+  background-color: #ff5e5e; /* Red background for error button */
+}
+
+.feil_button:hover {
+  background-color: #ff2f2f; /* Darker red on hover */
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  width: max-content; /* Automatic width */
+  padding: 0.5em; /* Padding for tooltip */
+  background-color: #333; /* Dark background for tooltip */
+  color: #fff; /* White text */
+  text-align: center; /* Center text */
+  border-radius: 4px; /* Rounded corners */
+  position: absolute; /* Position absolute */
+  top: 100%; /* Below the tooltip */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust position */
+  transition: visibility 0.3s; /* Transition for visibility */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible; /* Show on hover */
+}
+
+/* Portfolio Section */
+.content_portefolje {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw; /* Space between portfolio items */
+}
+
+#kkbanner, #trio, #nodhjelp, #kk {
+  width: 100%; /* Full width */
+  max-width: 100%; /* Ensure no overflow */
+  height: auto; /* Auto height */
+}
+
+/* Cookie Consent */
+#cookie-consent {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 999; /* Above all other content */
+}
+
+#cookie-consent.show {
+  display: block; /* Show when active */
+}
+
+#cookie-consent .cookie-consent-container {
+  background: #fff; /* White background */
+  padding: 20px; /* Padding */
+  max-width: 500px; /* Max width for container */
+  margin: auto; /* Center */
+  position: relative;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  border-radius: 8px; /* Rounded corners */
+}
+
+#cookie-consent button {
+  font-size: 1.1em; /* Button font size */
+  margin-top: 10px; /* Margin above */
+  padding: 0.7rem 1.5rem; /* Padding */
+}
+
+.cookie-consent-allow {
+  background-color: #04aa6d; /* Green background */
+  color: #fff; /* White text */
+}
+
+.cookie-consent-allow:hover {
+  background-color: #059862; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header nav ul {
+      gap: 1vw; /* Reduced gap */
+  }
+
+  .content_forside {
+      flex-direction: column; /* Stack elements vertically */
+      gap: 5vw; /* Increased gap for spacing */
+  }
+
+  .content_forside .hedobesitting {
+      width: 100%; /* Fill available width */
+      margin-top: 0; /* No margin */
+  }
+
+  .content_portefolje {
+      width: 100%; /* Full width on small screens */
+  }
+
+  .content_cv, .content_forside {
+      padding: 2vw; /* Responsive padding */
+  }
+}
+
+/* Image Responsiveness */
+.content_forside img.hedobesitting {
+  max-width: auto; /* Ensure no overflow */
+  height: 60vw; /* Maintain aspect ratio */
+  align-self: stretch; /* Stretch to fill container height */
+}
+
+/* Additional Dark Mode Styles for Forms */
+body.dark input[type="text"],
+body.dark input[type="tel"],
+body.dark input[type="email"],
+body.dark select,
+body.dark textarea {
+  background-color: #444; /* Darker gray for input fields in dark mode */
+  color: #ffffff; /* White text color */
+  border-color: #666; /* Darker border */
+}
+
+/* Dark Mode for Buttons */
+.submit_button,
+.feil_button,
+.msg {
+  transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+body.dark .submit_button {
+  background-color: #1d7a53; /* Darker green for submit button */
+}
+
+body.dark .feil_button {
+  background-color: #c50e0e; /* Darker red for error button */
+}
+
+body.dark .submit_button:hover {
+  background-color: #1a6a47; /* Darker on hover */
+}
+
+body.dark .feil_button:hover {
+  background-color: #b30c0c; /* Darker on hover */
+}
